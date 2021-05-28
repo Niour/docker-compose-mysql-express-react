@@ -1,4 +1,6 @@
 .git
+database/dumbs/*
 env/mysql.env
+env/backend.env
 backend/Logs
 backend/node_modules

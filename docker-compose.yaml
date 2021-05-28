@@ -12,20 +12,20 @@ services:
       - ./env/mysql.env
     volumes:
       - data:/var/lib/mysql
-  # backend:
-  #   build:
-  #     context: ./backend
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "80:80"
-  #   volumes:
-  #     - logs:/app/logs
-  #     - ./backend:/app
-  #     - /app/node_modules
-  #   env_file:
-  #     - ./env/backend.env
-  #   depends_on:
-  #     - mongodb
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mysql_1
   # frontend:
   #   build: ./frontend
   #   ports:
@@ -38,4 +38,4 @@ services:
   #     - backend
 volumes:
   data:
-#   logs:
+  logs:
